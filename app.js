@@ -15,24 +15,31 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
             // 2. Display the result
             document.getElementById("dice-1").style.display = "block";
             document.getElementById("dice-2").style.display = "block";
-            document.getElementById("dice").src = "image/dice-"+ diceNumber1 + ".png";
-            document.getElementById("dice").src = "image/dice-"+ diceNumber2 + ".png";
+            document.getElementById("dice-1").src = "image/dice-"+ diceNumber1 + ".png";
+            document.getElementById("dice-2").src = "image/dice-"+ diceNumber2 + ".png";
 
-            if(diceNumber === 6 && lastDice === 6) {
-                // player lose score
-                scores[activePlayer] = 0;
-                document.querySelector("#score-" + activePlayer).textContent = 0;
-                nextPlayer();
-            }  else if (diceNumber !== 1 ) {
-                //  add score
-                roundScore += diceNumber;
+            if(diceNumber1 !== 1 && diceNumber2 !== 2) {
+                //Add score
+                roundScore += diceNumber1 + diceNumber2;
                 document.querySelector("#current-" + activePlayer ).textContent = roundScore;
-                console.log(diceNumber);
             } else {
                 nextPlayer();
             }
+            // if(diceNumber === 6 && lastDice === 6) {
+            //     // player lose score
+            //     scores[activePlayer] = 0;
+            //     document.querySelector("#score-" + activePlayer).textContent = 0;
+            //     nextPlayer();
+            // }  else if (diceNumber !== 1 ) {
+            //     //  add score
+            //     roundScore += diceNumber;
+            //     document.querySelector("#current-" + activePlayer ).textContent = roundScore;
+            //     console.log(diceNumber);
+            // } else {
+            //     nextPlayer();
+            // }
 
-            lastDice = dice;
+            // lastDice = dice;
     }
    
 });
@@ -108,3 +115,4 @@ function init () {
     document.querySelector(".player-0-panel").classList.add("active");
 
 }
+
